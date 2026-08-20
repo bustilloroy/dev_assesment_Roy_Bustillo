@@ -8,19 +8,21 @@ import type { PokemonApiResponse, PokemonInformation } from "@/types/pokemon";
 type QueryParams = {
     limit?: number;
     offset?: number;
+    search?: string;
 }
 
 export const getPokemon = (params: QueryParams = {}) => {
-    const { limit, offset } = params;
+    const { limit, offset, search } = params;
 
     const queryParams: Partial<QueryParams> = {};
 
     if (limit) queryParams.limit = limit;
     if (offset) queryParams.offset = offset;
+    if (search) queryParams.search = search;
 
     return queryOptions<AxiosResponse<PokemonApiResponse>, AxiosError>({
         queryKey: ['pokemon', queryParams],
-        queryFn: () => interceptor.get(`/pokemon`, { params: queryParams })
+        queryFn: () => interceptor.get(`/pokemon/${search ? search : ''}`, { params: queryParams })
     })
 }
 

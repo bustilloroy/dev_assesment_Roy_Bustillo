@@ -10,6 +10,11 @@ export interface Pokemon {
     url: string
 }
 
+export interface CapturedPokemonInfo {
+    name: string;
+    captured_date: string;
+}
+
 export interface PokemonInformation {
     id: number;
     name: string;

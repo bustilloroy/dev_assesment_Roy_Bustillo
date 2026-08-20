@@ -12,11 +12,13 @@ import {
     Image,
     Modal,
     Button,
+    Space,
 } from "antd";
 import PokemonAbilities from "./PokemonAbilities";
 import PokemonBasicInfo from "./PokemonBasicInfo";
 import PokemonMoves from "./PokemonMoves";
 import PokemonTypes from "./PokemonTypes";
+import { CaptureButton } from "./CapturedButton";
 
 interface PokemonCardProps {
     name: string;
@@ -32,6 +34,8 @@ const carouselStyle: React.CSSProperties = {
     textAlign: "center",
     background: "gray",
 };
+
+const dateNow = new Date();
 
 export default function PokemonCard(props: PokemonCardProps) {
     const { name } = props;
@@ -70,12 +74,20 @@ export default function PokemonCard(props: PokemonCardProps) {
                 open={isModalOpen && isSuccess}
                 onCancel={() => setIsModalOpen(false)}
                 footer={(
-                    <Button
-                        size="small"
-                        onClick={() => setIsModalOpen(false)}
-                    >
-                        Close
-                    </Button>
+                    <Space>
+                        <Button
+                            size="small"
+                            onClick={() => setIsModalOpen(false)}
+                        >
+                            Close
+                        </Button>
+                        <CaptureButton
+                            pokemon={{
+                                name,
+                                captured_date: dateNow.toISOString()
+                            }}
+                        />
+                    </Space>
                 )}
             >
                 <hr className="mb-3 text-gray-300" />
