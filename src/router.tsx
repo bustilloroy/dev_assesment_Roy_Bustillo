@@ -9,7 +9,7 @@ export function getRouter() {
 
     const router = createRouter({
         routeTree,
-        basepath: '/dev_assesment_Roy_Bustillo',
+        basepath: '/dev_assesment_Roy_Bustillo/',
         context: { queryClient },
         history: hashHistory
     })
