@@ -8,7 +8,7 @@ export function getRouter() {
 
     const router = createRouter({
         routeTree,
-        basepath: '/pokemon-collection',
+        basepath: '/dev_assesment_Roy_Bustillo',
         context: { queryClient },
     })
 

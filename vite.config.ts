@@ -7,7 +7,7 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/pokemon-collection',
+  base: '/dev_assesment_Roy_Bustillo',
   resolve: {
     // alias: {
     //   '@': path.resolve(import.meta.dirname, './src'),
